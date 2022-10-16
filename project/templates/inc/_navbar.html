@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home_route' %}">Главная</a>
+                </li>
+
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'add_news_route' %}">Добавить новость</a>
+                </li>
+                {% endif %}
+
+
+                {% if request.user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link" target="_blank" href="http://127.0.0.1:8000/admin/">Перейти в админку</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        API auth tokens
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'token_route' %}">Token</a></li>
+                        <li><a class="dropdown-item" href="{% url 'jwt_token_route' %}">JWT</a></li>
+                    </ul>
+                </li>
+
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+        <span class="navbar-text ">
+
+            {% if request.user.is_authenticated %}
+                {{ user.username }}, добро пожаловать <a href="{% url 'logout_route' %}">Выйти</a>
+            {% else %}
+                <a href="{% url 'register_route' %}">Зарегистрироваться</a>
+                <a href="{% url 'login_route' %}">Войти</a>
+            {% endif %}
+
+        </span>
+
+    </div>
+</nav>

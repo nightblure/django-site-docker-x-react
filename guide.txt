@@ -1,0 +1,19 @@
+запуск:
+    развернуть docker-контейнер с postgresql с помощью docker-compose в корневой папке
+    * в случае проблем придется вручную развернуть дамп из корневой папки внутри docker-контейнера
+
+    запустить сервер drf api:
+        cd project
+        python manage.py runserver
+        (по адресу http://127.0.0.1:8000/api/v1/news/ drf должен выдать ответ)
+
+    запустить react-приложение:
+        установить node.js
+        cd project/frontend/reactapp
+        npm start
+
+команды:
+    создать react-приложение: npx create-react-app <name>
+    сборка (в директории react-приложения): npm run build
+    запуск (в директории react-приложения): npm start
+
