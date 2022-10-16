@@ -41,21 +41,36 @@ const NewsList = () => {
             <div className="media d-flex">
               <div className="media-body">
                 <h5 className="card-title"> {news_element.title} </h5>
-                <p className="card-text">
+                <div className="card-text">
                   {" "}
                   <div
                     dangerouslySetInnerHTML={{ __html: news_element.content }}
                   />{" "}
-                </p>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="card-footer" style={{flexDirection: 'row', display: 'flex', justifyContent: 'space-between'}}>
-            <div style={{ float: 'right' }} class="text-muted"> Created: { news_element.created_at } </div>
-            <div class="text-muted"> Author: {news_element.user_str}  </div>
+          <div
+            className="card-footer"
+            style={{
+              flexDirection: "row",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            <div className="text-muted">
+              {" "}
+              {news_element.user_str}, {news_element.created_at}{" "}
+            </div>
+            <span
+              style={{ float: "right" }}
+              className="badge rounded-pill text-bg-primary"
+            >
+              {" "}
+              {news_element.views_count} views{" "}
+            </span>
           </div>
-
         </div>
       ))}
     </div>
