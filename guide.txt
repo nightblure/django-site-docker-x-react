@@ -1,4 +1,8 @@
 запуск:
+    установка зависимостей для api:
+        python -m venv venv
+        pip install -r requrements.txt
+
     развернуть docker-контейнер с postgresql с помощью docker-compose в корневой папке
     * в случае проблем придется вручную развернуть дамп из корневой папки внутри docker-контейнера
 
